@@ -40,5 +40,11 @@ BDEPEND="
 
 src_configure() {
 	lua_setup
+	local emesonargs=(
+		# Запрещаем использование wrap-файлов (сабпроектов)
+		--wrap-mode nodownload
+		# Явно указываем использовать системные зависимости
+		-Dforce_fallback_for=[]
+	)
 	meson_src_configure
 }
