@@ -26,7 +26,7 @@ RDEPEND="
 	dev-libs/glib:2
 	gui-libs/wlroots:0.18
 	media-libs/libglvnd
-	media-libs/libinput
+	dev-libs/libinput
 	media-libs/mesa
 	x11-libs/libxkbcommon
 	x11-libs/pixman
