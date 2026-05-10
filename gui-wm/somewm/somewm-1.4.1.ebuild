@@ -39,10 +39,6 @@ BDEPEND="
 "
 
 src_configure() {
-	local emesonargs=(
-		-Dignore_lgi=false
-	)
-	# Обязательно для lua-single: подготавливаем переменные окружения
 	lua_setup
 	meson_src_configure
 }
