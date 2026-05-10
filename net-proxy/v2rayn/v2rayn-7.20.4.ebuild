@@ -31,17 +31,26 @@ src_prepare() {
 }
 
 src_install() {
-    # Устанавливаем в /opt, так как это готовый бандл со всеми библиотеками
+    # 1. Копируем всё содержимое из рабочей папки в /opt/v2rayn
+    # Используем '.', чтобы скопировать все файлы и подпапки (bin, guiConfigs и т.д.)
     insinto /opt/v2rayn
-    doins -r *
+    doins -r .
 
-    # Делаем основной файл исполняемым
+    # 2. Устанавливаем права на исполнение основного бинарника
+    # В ebuild-ах fperms работает относительно образа установки
     fperms +x /opt/v2rayn/v2rayN
 
-    # Создаем симлинк в /usr/bin
-    dosym /opt/v2rayn/v2rayN.Desktop /usr/bin/v2rayn
+    # 3. Устанавливаем права на исполнение для файлов в папке bin (там лежат xray/v2ray)
+    # Если папка bin существует и там есть файлы
+    if [[ -d "${ED}/opt/v2rayn/bin" ]]; then
+        fperms +x /opt/v2rayn/bin/v2ray
+        fperms +x /opt/v2rayn/bin/xray
+    fi
 
-    # Иконка и desktop-файл
-    newicon -s 512 guiConfigs/logo.png v2rayn.png
+    # 4. Создаем симлинк в /usr/bin для удобного запуска
+    dosym /opt/v2rayn/v2rayN /usr/bin/v2rayn
+
+    # 5. Добавляем иконку и .desktop файл для меню приложений
+    newicon -s 512 v2rayN.png v2rayn.png
     make_desktop_entry v2rayn "v2rayN" v2rayn "Network;Proxy;"
 }
