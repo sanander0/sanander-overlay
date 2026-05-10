@@ -25,8 +25,8 @@ RDEPEND="
 	dev-libs/wayland
 	dev-libs/glib:2
 	gui-libs/wlroots:0.18
-	media-libs/libglvnd
 	dev-libs/libinput
+	media-libs/libglvnd
 	media-libs/mesa
 	x11-libs/libxkbcommon
 	x11-libs/pixman
