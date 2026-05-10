@@ -7,7 +7,7 @@ inherit desktop xdg
 
 DESCRIPTION="GUI client for Windows and Linux, support Xray core and v2fly core"
 HOMEPAGE="https://github.com/2dust/v2rayn"
-SRC_URI="https://github.com/2dust/v2rayn/releases/download/${PV}/v2rayN-linux-x64.zip -> ${P}.zip"
+SRC_URI="https://github.com/2dust/v2rayN/releases/download/${PV}/v2rayN-linux-64.zip -> ${P}.zip"
 
 LICENSE="GPL-3.0"
 SLOT="0"
