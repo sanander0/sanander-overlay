@@ -3,7 +3,6 @@
 
 EAPI=8
 
-# Добавляем lua-single для корректной работы с LuaJIT
 LUA_COMPAT=( luajit )
 
 inherit meson lua-single
@@ -15,12 +14,14 @@ SRC_URI="https://github.com/trip-zip/somewm/archive/refs/tags/v${PV}.tar.gz -> $
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+
+# Это связывает флаги Lua с установкой
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-# Список зависимостей расширился согласно логу Meson
+# Правильный способ указания зависимости от Lua-модуля (lgi)
 RDEPEND="
 	${LUA_DEPS}
-	dev-lua/lgi[${LUA_USEDEP}]
+	$(lua_gen_cond_dep 'dev-lua/lgi[${LUA_USEDEP}]')
 	dev-libs/wayland
 	dev-libs/glib:2
 	gui-libs/wlroots:0.18
@@ -48,5 +49,7 @@ src_configure() {
 	local emesonargs=(
 		-Dignore_lgi=false
 	)
+	# Обязательно для lua-single: подготавливаем переменные окружения
+	lua_setup
 	meson_src_configure
 }
