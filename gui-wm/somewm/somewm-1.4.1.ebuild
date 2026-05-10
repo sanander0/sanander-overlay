@@ -23,19 +23,12 @@ RDEPEND="
 	${LUA_DEPS}
 	$(lua_gen_cond_dep 'dev-lua/lgi[${LUA_USEDEP}]')
 	dev-libs/wayland
-	dev-libs/glib:2
 	gui-libs/wlroots:0.18
 	dev-libs/libinput
-	media-libs/libglvnd
-	media-libs/mesa
 	x11-libs/libxkbcommon
-	x11-libs/pixman
 	x11-libs/pango
 	x11-libs/cairo[X]
-	x11-libs/libxcb
-	x11-libs/xcb-util-icccm
-	dev-libs/dbus-glib
-	gui-libs/gtk:3[wayland]
+	x11-libs/gdk-pixbuf:2
 "
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
