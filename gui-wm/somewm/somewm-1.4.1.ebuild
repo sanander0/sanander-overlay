@@ -31,7 +31,6 @@ RDEPEND="
 	x11-libs/pango
 	x11-libs/cairo[X]
 	x11-libs/gdk-pixbuf:2
-	screencast? ( gui-libs/xdg-desktop-portal-wlr )
 "
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols

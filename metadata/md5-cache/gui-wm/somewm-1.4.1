@@ -1,6 +1,6 @@
 BDEPEND=dev-util/wayland-scanner virtual/pkgconfig >=dev-build/meson-1.2.3 app-alternatives/ninja dev-build/meson-format-array
 DEFINED_PHASES=compile configure install prepare setup test
-DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_luajit? ( dev-lua/lgi[lua_targets_luajit(-)] ) dev-libs/wayland gui-libs/wlroots:0.19 dev-libs/libinput x11-libs/libxkbcommon x11-libs/pango x11-libs/cairo[X] x11-libs/gdk-pixbuf:2 screencast? ( gui-libs/xdg-desktop-portal-wlr ) dev-libs/wayland-protocols
+DEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_luajit? ( dev-lua/lgi[lua_targets_luajit(-)] ) dev-libs/wayland gui-libs/wlroots:0.19 dev-libs/libinput x11-libs/libxkbcommon x11-libs/pango x11-libs/cairo[X] x11-libs/gdk-pixbuf:2 dev-libs/wayland-protocols
 DESCRIPTION=A dynamic tiling Wayland compositor using LuaJIT and LGI
 EAPI=8
 HOMEPAGE=https://github.com/trip-zip/somewm
@@ -8,9 +8,9 @@ INHERIT=meson lua-single
 IUSE=portal randr +lua_single_target_luajit
 KEYWORDS=~amd64
 LICENSE=MIT
-RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_luajit? ( dev-lua/lgi[lua_targets_luajit(-)] ) dev-libs/wayland gui-libs/wlroots:0.19 dev-libs/libinput x11-libs/libxkbcommon x11-libs/pango x11-libs/cairo[X] x11-libs/gdk-pixbuf:2 screencast? ( gui-libs/xdg-desktop-portal-wlr )
+RDEPEND=lua_single_target_luajit? ( dev-lang/luajit:= ) lua_single_target_luajit? ( dev-lua/lgi[lua_targets_luajit(-)] ) dev-libs/wayland gui-libs/wlroots:0.19 dev-libs/libinput x11-libs/libxkbcommon x11-libs/pango x11-libs/cairo[X] x11-libs/gdk-pixbuf:2
 REQUIRED_USE=^^ ( lua_single_target_luajit )
 SLOT=0
 SRC_URI=https://github.com/trip-zip/somewm/archive/refs/tags/v1.4.1.tar.gz -> somewm-1.4.1.tar.gz
 _eclasses_=toolchain-funcs	58a918e3a42d0156f010dcfd43725be5	flag-o-matic	fd3558f73f6503093adee69adf41020d	multiprocessing	45d0620f25c2f063ad6276ecd9ed9399	ninja-utils	d063ea1900a793f93eb095010d6d9156	eapi9-pipestatus	d2c134036ac31c3085aebc9147f572bd	python-utils-r1	ef5e1b83933a77a20b738bcd0560b42a	sysroot	4c36abaf94ebd3ab32f8abea9a444121	rust-toolchain	76468983281b0a7fc167ca224f84ecfd	meson	12065b402c6d78a2aec926ed8dfd964f	lua-utils	7c89927eda6f21c4c48136247077ab37	lua-single	75fe955a36b18e199213c8739eaebdbb
-_md5_=a3b172668393097cc210964a02c18c7c
+_md5_=1b34be97cc75ff252609ee16347b9dc2
