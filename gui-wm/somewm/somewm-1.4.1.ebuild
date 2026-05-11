@@ -15,10 +15,12 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-# Это связывает флаги Lua с установкой
+# Добавляем флаги для портала и randr
+IUSE="portal randr"
+
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
-# Правильный способ указания зависимости от Lua-модуля (lgi)
+# Список зависимостей
 RDEPEND="
 	${LUA_DEPS}
 	$(lua_gen_cond_dep 'dev-lua/lgi[${LUA_USEDEP}]')
@@ -29,6 +31,8 @@ RDEPEND="
 	x11-libs/pango
 	x11-libs/cairo[X]
 	x11-libs/gdk-pixbuf:2
+	screencast? ( sys-apps/xdg-desktop-portal-wlr )
+	randr? ( gui-apps/wlr-randr )
 "
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
@@ -38,13 +42,16 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+src_prepare() {
+	default
+}
+
 src_configure() {
 	lua_setup
+	export SOMEWM_IGNORE_LGI=1
+
 	local emesonargs=(
-		# Запрещаем использование wrap-файлов (сабпроектов)
 		--wrap-mode nodownload
-		# Явно указываем использовать системные зависимости
-		-Dforce_fallback_for=[]
 	)
 	meson_src_configure
 }
