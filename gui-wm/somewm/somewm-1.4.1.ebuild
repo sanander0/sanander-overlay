@@ -32,7 +32,6 @@ RDEPEND="
 	x11-libs/cairo[X]
 	x11-libs/gdk-pixbuf:2
 	portal? ( gui-libs/xdg-desktop-portal-wlr )
-	randr? ( gui-apps/wlr-randr )
 "
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
