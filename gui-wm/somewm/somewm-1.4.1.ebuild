@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 # Добавляем флаги для портала и randr
-IUSE="portal randr"
+IUSE="screencast"
 
 REQUIRED_USE="${LUA_REQUIRED_USE}"
 
@@ -31,6 +31,7 @@ RDEPEND="
 	x11-libs/pango
 	x11-libs/cairo[X]
 	x11-libs/gdk-pixbuf:2
+	screencast? ( sys-apps/xdg-desktop-portal-wlr )
 "
 DEPEND="${RDEPEND}
 	dev-libs/wayland-protocols
