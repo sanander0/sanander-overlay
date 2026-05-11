@@ -23,7 +23,7 @@ RDEPEND="
 	${LUA_DEPS}
 	$(lua_gen_cond_dep 'dev-lua/lgi[${LUA_USEDEP}]')
 	dev-libs/wayland
-	gui-libs/wlroots:0.18
+	gui-libs/wlroots:0.19
 	dev-libs/libinput
 	x11-libs/libxkbcommon
 	x11-libs/pango
