@@ -1,0 +1,11 @@
+BDEPEND=|| ( dev-util/flutter-bin dev-util/flutter )
+DEFINED_PHASES=compile install unpack
+DESCRIPTION=An open-source cross-platform alternative to AirDrop (From Source)
+EAPI=8
+HOMEPAGE=https://github.com/localsend/localsend
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=x11-libs/gtk+:3 dev-libs/glib:2
+SLOT=0
+SRC_URI=https://github.com/localsend/localsend/archive/refs/tags/v1.14.0.tar.gz -> localsend-1.14.0.tar.gz
+_md5_=fef66ca8d7c9df9b4cff43772fa47802
