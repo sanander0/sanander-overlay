@@ -27,21 +27,22 @@ BDEPEND=""
 QA_PREBUILT="usr/bin/localsend_app
 	usr/lib/localsend/lib/*"
 
+EAPI=8
+
+inherit desktop xdg # xdg екласс поможет автоматически обновить кэш меню при установке
+
+# ...
 src_install() {
-	# Создаем структуру каталогов
 	diropts -m0755
 	dodir /usr/share/localsend
+	cp -r * "${ED}/usr/share/localsend/" || die
 
-	# Копируем бинарные файлы и библиотеки
-	cp -r * "${ED}/usr/share/localsend/" || die "Copying files failed"
-
-	# Делаем исполняемый файл доступным через symlink
 	dodir /usr/bin
 	dosym ../share/localsend/localsend_app /usr/bin/localsend
 
-	# Установка иконки
-	doicon -s 256 "${ED}/usr/share/localsend/data/flutter_assets/assets/img/logo-256.png"
+	# Устанавливаем иконку в системный Pixmaps для надежности
+	newicon "${ED}/usr/share/localsend/data/flutter_assets/assets/img/logo-256.png" "localsend.png"
 
-	# Создание .desktop файла для меню приложений
-	make_desktop_entry "localsend" "LocalSend" "logo-256" "Network"
+	# Создаем десктоп-файл (третий параметр — имя иконки без расширения)
+	make_desktop_entry "localsend" "LocalSend" "localsend" "Network;Utility;"
 }
