@@ -3,9 +3,10 @@
 
 EAPI=8
 
+DISTUTILS_USE_PEP517=no
 PYTHON_COMPAT=( python3_{11..13} )
 
-inherit git-r3 meson python-any-r1 xdg
+inherit distutils-r1 meson xdg git-r3
 
 DESCRIPTION="GTK4 application that downloads catgirl images from nekos.moe"
 HOMEPAGE="https://github.com/NyarchLinux/CatgirlDownloader"
@@ -26,16 +27,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 BDEPEND="
-	${PYTHON_DEPS}
 	dev-build/meson
 	dev-build/ninja
 	virtual/pkgconfig
 "
-
-src_configure() {
-	local emesonargs=(
-		--prefix=/usr
-	)
-
-	meson_src_configure
-}
